@@ -27,7 +27,7 @@ class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     func getJSON(){
-        let url = URL(string: "https://api.jcdecaux.com/vls/v1/stations?apiKey=c7e226e356101d8a519809679aba25090209ca8e")
+        let url = URL(string: "https://api.jcdecaux.com/vls/v1/stations?apiKey=5dc3b111b2420093bef59d27a694d1f8963ee959")
         let urlRequest = URLRequest(url: url!)
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
