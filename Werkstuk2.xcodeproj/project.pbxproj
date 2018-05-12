@@ -15,6 +15,7 @@
 		3F3BDA9220A6DF14003BE4D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3BDA9020A6DF14003BE4D5 /* LaunchScreen.storyboard */; };
 		3F3BDA9D20A6DF14003BE4D5 /* Werkstuk2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BDA9C20A6DF14003BE4D5 /* Werkstuk2Tests.swift */; };
 		3F3BDAA820A6DF14003BE4D5 /* Werkstuk2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BDAA720A6DF14003BE4D5 /* Werkstuk2UITests.swift */; };
+		3F3BDAB620A6E08E003BE4D5 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BDAB520A6E08E003BE4D5 /* mainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3F3BDAA320A6DF14003BE4D5 /* Werkstuk2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Werkstuk2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3BDAA720A6DF14003BE4D5 /* Werkstuk2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Werkstuk2UITests.swift; sourceTree = "<group>"; };
 		3F3BDAA920A6DF14003BE4D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F3BDAB520A6E08E003BE4D5 /* mainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				3F3BDA9020A6DF14003BE4D5 /* LaunchScreen.storyboard */,
 				3F3BDA9320A6DF14003BE4D5 /* Info.plist */,
 				3F3BDA8B20A6DF14003BE4D5 /* Werkstuk2.xcdatamodeld */,
+				3F3BDAB520A6E08E003BE4D5 /* mainViewController.swift */,
 			);
 			path = Werkstuk2;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				3F3BDA8D20A6DF14003BE4D5 /* Werkstuk2.xcdatamodeld in Sources */,
 				3F3BDA8720A6DF14003BE4D5 /* ViewController.swift in Sources */,
 				3F3BDA8520A6DF14003BE4D5 /* AppDelegate.swift in Sources */,
+				3F3BDAB620A6E08E003BE4D5 /* mainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
