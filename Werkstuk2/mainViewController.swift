@@ -11,6 +11,7 @@ import MapKit
 
 class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
+    var pins: [Annotation] = []
     @IBOutlet var button: UIButton!
     @IBOutlet var label: UILabel!
     @IBOutlet var map: MKMapView!
@@ -60,6 +61,8 @@ class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
                         longitude = coordinates as! Double
                     }
                 }
+                let pin = Annotation(title: name!, subtitle: status!, coordinate: CLLocationCoordinate2DMake(latitude,longitude))
+                self.pins.append(pin)
             }
         }
         
