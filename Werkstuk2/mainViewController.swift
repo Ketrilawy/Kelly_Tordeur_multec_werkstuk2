@@ -26,6 +26,46 @@ class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         // Dispose of any resources that can be recreated.
     }
     
+    func getJSON(){
+        let url = URL(string: "https://api.jcdecaux.com/vls/v1/stations?apiKey=c7e226e356101d8a519809679aba25090209ca8e")
+        let urlRequest = URLRequest(url: url!)
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            
+            var latitude:Double = 0.0
+            var longitude:Double = 0.0
+            
+            guard error == nil else {
+                print("error GET")
+                print(error!)
+                return
+            }
+            guard let responseData = data else {
+                print("geen data beschikbaar")
+                return
+            }
+            guard let stations = try? JSONSerialization.jsonObject(with: responseData, options: []) as! [AnyObject] else {
+                print("kan data niet lezen")
+                return
+            }
+            for value in stations {
+                let status = value["status"] as? String
+                let name = value["name"] as? String
+                for (positions,coordinates) in (value["position"] as? NSDictionary)!{
+                    if positions as! String == "lat"{
+                        latitude = coordinates as! Double
+                    }
+                    if positions as! String == "lng"{
+                        longitude = coordinates as! Double
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
 
     /*
     // MARK: - Navigation
