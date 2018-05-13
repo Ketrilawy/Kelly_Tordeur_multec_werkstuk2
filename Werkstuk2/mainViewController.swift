@@ -18,8 +18,25 @@ class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.label.text = vandaag()
+        self.button.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func buttonAction(_ sender: Any) {
+    }
+    
+    func vandaag() -> String{
+        let date = Date()
+        let calender = Calendar.current
+        let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        let year = components.year
+        let month = components.month
+        let day = components.day
+        let hour = components.hour
+        let minute = components.minute
+        let today_string = String(day!) + "/" + String(month!) + "/" + String(year!) + " " + String(hour!)  + ":" + String(minute!)
+        return today_string
     }
 
     override func didReceiveMemoryWarning() {
