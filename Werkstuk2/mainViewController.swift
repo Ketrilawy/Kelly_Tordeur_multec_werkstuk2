@@ -12,6 +12,7 @@ import MapKit
 class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     var pins: [Annotation] = []
+    let dispatchGroup = DispatchGroup()
     @IBOutlet var button: UIButton!
     @IBOutlet var label: UILabel!
     @IBOutlet var map: MKMapView!
@@ -20,13 +21,18 @@ class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         super.viewDidLoad()
         self.label.text = vandaag()
         self.button.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
+        dispatchGroup.enter()
         getJSON()
+        dispatchGroup.wait()
+        dispatchGroup.enter()
         placeOnMap(pins: pins)
         // Do any additional setup after loading the view.
     }
     
     @IBAction func buttonAction(_ sender: Any) {
+        dispatchGroup.enter()
         placeOnMap(pins: pins)
+        self.button.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
     }
     
     func placeOnMap(pins: [Annotation]){
@@ -35,6 +41,7 @@ class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         for pin in pins {
             map.addAnnotation(pin)
         }
+        dispatchGroup.leave()
     }
     
     func vandaag() -> String{
@@ -92,6 +99,7 @@ class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
                 let pin = Annotation(title: name!, subtitle: status!, coordinate: CLLocationCoordinate2DMake(latitude,longitude))
                 self.pins.append(pin)
             }
+            self.dispatchGroup.leave()
         }
         
         task.resume()
