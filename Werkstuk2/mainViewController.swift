@@ -20,10 +20,21 @@ class mainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         super.viewDidLoad()
         self.label.text = vandaag()
         self.button.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
+        getJSON()
+        placeOnMap(pins: pins)
         // Do any additional setup after loading the view.
     }
     
     @IBAction func buttonAction(_ sender: Any) {
+        placeOnMap(pins: pins)
+    }
+    
+    func placeOnMap(pins: [Annotation]){
+        let pinsOpMap = self.map.annotations
+        self.map.removeAnnotations(pinsOpMap)
+        for pin in pins {
+            map.addAnnotation(pin)
+        }
     }
     
     func vandaag() -> String{
